@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maps and Places Autocomplete</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM1q5_dz_tuIf2cloOHoLaqhPkMQ6uQWQ&libraries=places&callback=initMap" async defer></script>
+    <style>
+      body { margin: 0; padding: 0; height: 100vh; }
+      #map { width: 100%; height: 100%; }
+      #pac-input {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 5;
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="pac-input" type="text" placeholder="Enter an address or location">
+    <div id="map"></div>
+    <script src="./index.js"></script>
+  </body>
+</html>
