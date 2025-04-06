@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Places Autocomplete</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js">
+    </script>
+    <link rel="stylesheet" href="./style.css"/>
+  </head>
+  <body>
+    <gmpx-api-loader key="AIzaSyAM1q5_dz_tuIf2cloOHoLaqhPkMQ6uQWQ" solution-channel="GMP_GE_placepicker_v2">
+    </gmpx-api-loader>
+    <div id="place-picker-box">
+      <div id="place-picker-container">
+        <gmpx-place-picker placeholder="Enter an address"></gmpx-place-picker>
+      </div>
+    </div>
+  </body>
+</html>
