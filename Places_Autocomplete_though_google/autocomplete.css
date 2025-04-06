@@ -1,0 +1,15 @@
+body {
+  padding: 25px;
+  background-color: #f0f1f3;
+  font-family: "Arial", sans-serif;
+}
+
+#place-picker-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#place-picker-container {
+  text-align: left;
+}
