@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow App Clone - Stock & Crypto Dashboard</title>
+    <link rel="stylesheet" href="chart.css">
+    <!-- Load Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Grow</h1>
+            </div>
+            <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li class="active"><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#stocks">Stocks</a></li>
+                    <li><a href="#crypto">Crypto</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="dashboard" class="section active">
+                <h2>Dashboard Overview</h2>
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Portfolio Value</h3>
+                        <p class="value">$<span id="portfolio-value">10,245.78</span></p>
+                        <p class="change positive">+2.4% today</p>
+                    </div>
+                    <div class="card">
+                        <h3>Top Performer</h3>
+                        <p class="value" id="top-performer">AAPL</p>
+                        <p class="change positive">+3.2%</p>
+                    </div>
+                    <div class="card">
+                        <h3>Market Status</h3>
+                        <p class="value" id="market-status">Open</p>
+                        <p class="time">4h 32m remaining</p>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-wrapper">
+                        <h3>Portfolio Performance</h3>
+                        <div class="chart-container">
+                            <canvas id="portfolio-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <h3>Asset Allocation</h3>
+                        <div class="chart-container">
+                            <canvas id="allocation-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="watchlist">
+                    <h3>Watchlist</h3>
+                    <div class="table-container">
+                        <table id="watchlist-table">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="stocks" class="section">
+                <h2>Stock Market</h2>
+                <div class="search-container">
+                    <input type="text" id="stock-search" placeholder="Search for stocks...">
+                    <button id="stock-search-btn">Search</button>
+                </div>
+                
+                <div class="stock-details">
+                    <div class="stock-info">
+                        <h3 id="selected-stock-name">Apple Inc.</h3>
+                        <p id="selected-stock-symbol">AAPL</p>
+                        <div class="price-container">
+                            <p class="current-price">$<span id="selected-stock-price">173.45</span></p>
+                            <p class="price-change positive" id="selected-stock-change">+1.23 (0.72%)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-controls">
+                        <button class="time-btn active" data-time="1d">1D</button>
+                        <button class="time-btn" data-time="1w">1W</button>
+                        <button class="time-btn" data-time="1m">1M</button>
+                        <button class="time-btn" data-time="3m">3M</button>
+                        <button class="time-btn" data-time="1y">1Y</button>
+                    </div>
+                    
+                    <div class="chart-wrapper full-width">
+                        <div class="chart-container">
+                            <canvas id="stock-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="stock-stats">
+                        <div class="stat">
+                            <p class="stat-label">Open</p>
+                            <p class="stat-value" id="stock-open">172.30</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">High</p>
+                            <p class="stat-value" id="stock-high">174.21</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">Low</p>
+                            <p class="stat-value" id="stock-low">171.96</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">Volume</p>
+                            <p class="stat-value" id="stock-volume">52.3M</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">Market Cap</p>
+                            <p class="stat-value" id="stock-market-cap">2.71T</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">P/E Ratio</p>
+                            <p class="stat-value" id="stock-pe">28.92</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="crypto" class="section">
+                <h2>Cryptocurrency</h2>
+                <div class="search-container">
+                    <input type="text" id="crypto-search" placeholder="Search for cryptocurrencies...">
+                    <button id="crypto-search-btn">Search</button>
+                </div>
+                
+                <div class="crypto-details">
+                    <div class="crypto-info">
+                        <h3 id="selected-crypto-name">Bitcoin</h3>
+                        <p id="selected-crypto-symbol">BTC</p>
+                        <div class="price-container">
+                            <p class="current-price">$<span id="selected-crypto-price">63,245.78</span></p>
+                            <p class="price-change positive" id="selected-crypto-change">+1,245.32 (2.01%)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-controls">
+                        <button class="time-btn active" data-time="1d">1D</button>
+                        <button class="time-btn" data-time="1w">1W</button>
+                        <button class="time-btn" data-time="1m">1M</button>
+                        <button class="time-btn" data-time="3m">3M</button>
+                        <button class="time-btn" data-time="1y">1Y</button>
+                    </div>
+                    
+                    <div class="chart-wrapper full-width">
+                        <div class="chart-container">
+                            <canvas id="crypto-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="crypto-stats">
+                        <div class="stat">
+                            <p class="stat-label">24h High</p>
+                            <p class="stat-value" id="crypto-high">64,120.45</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">24h Low</p>
+                            <p class="stat-value" id="crypto-low">61,890.32</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">24h Volume</p>
+                            <p class="stat-value" id="crypto-volume">$32.5B</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">Market Cap</p>
+                            <p class="stat-value" id="crypto-market-cap">$1.23T</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">Circulating Supply</p>
+                            <p class="stat-value" id="crypto-supply">19.4M</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">All-Time High</p>
+                            <p class="stat-value" id="crypto-ath">$69,045</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="portfolio" class="section">
+                <h2>Your Portfolio</h2>
+                <div class="portfolio-summary">
+                    <div class="card">
+                        <h3>Total Value</h3>
+                        <p class="value">$<span id="total-portfolio-value">10,245.78</span></p>
+                        <p class="change positive">+$245.32 (2.4%)</p>
+                    </div>
+                    <div class="card">
+                        <h3>Stocks</h3>
+                        <p class="value">$<span id="stocks-value">7,123.45</span></p>
+                        <p class="change positive">+$156.78 (2.2%)</p>
+                    </div>
+                    <div class="card">
+                        <h3>Crypto</h3>
+                        <p class="value">$<span id="crypto-value">3,122.33</span></p>
+                        <p class="change positive">+$88.54 (2.9%)</p>
+                    </div>
+                </div>
+
+                <div class="chart-wrapper">
+                    <h3>Portfolio Allocation</h3>
+                    <div class="chart-container">
+                        <canvas id="portfolio-allocation-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="portfolio-assets">
+                    <h3>Your Assets</h3>
+                    <div class="table-container">
+                        <table id="portfolio-table">
+                            <thead>
+                                <tr>
+                                    <th>Asset</th>
+                                    <th>Type</th>
+                                    <th>Quantity</th>
+                                    <th>Avg. Price</th>
+                                    <th>Current Price</th>
+                                    <th>Value</th>
+                                    <th>Profit/Loss</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="chart.js"></script>
+</body>
+</html>
