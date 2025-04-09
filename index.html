@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Examples</title>
+    <style>
+        .example {
+            margin-bottom: 20px;
+        }
+        .example button {
+            margin-top: 10px;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .lowlight {
+            background-color: lightcoral;
+            transform: scale(0.8);
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 10px;
+            transition: background-color 0.5s, transform 0.5s;
+        }
+        /* Info Bar Styling */
+        .info-bar {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .user-info {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .date-time {
+            color: #666;
+            font-family: monospace;
+        }
+       
+        /* Previous styles remain same */
+        .example {
+            margin-bottom: 20px;
+        }
+        .example button {
+            margin-top: 10px;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .lowlight {
+            background-color: lightcoral;
+            transform: scale(0.8);
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 10px;
+            transition: background-color 0.5s, transform 0.5s;
+        }
+        /* Info Bar Styling */
+        .info-bar {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .user-info {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .date-time {
+            color: #666;
+            font-family: monospace;
+        }
+        /* New styles for new examples */
+        .draggable {
+            width: 100px;
+            height: 100px;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: move;
+        }
+        .dropzone {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #666;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .selected {
+            background-color: yellow;
+        }
+        .animated {
+            transition: all 0.3s ease;
+        }
+        .form-control {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <div class="date-time">Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-03-22 11:17:12</div>
+        <div class="user-info">Current User's Login: rishabharaj</div>
+    </div>
+
+    <h1>DOM Manipulation Examples</h1>
+    
+    <!-- Set or get innerHTML -->
+    <div class="example" id="example1">
+        <h2>Set or get innerHTML</h2>
+        <p id="demo1">Original Content</p>
+        <button onclick="document.getElementById('demo1').innerHTML = 'New Content';">Change Content</button>
+    </div>
+    
+    <!-- Set or get innerText -->
+    <div class="example" id="example2">
+        <h2>Set or get innerText</h2>
+        <p id="demo2">Original Text Content</p>
+        <button onclick="document.getElementById('demo2').innerText = 'New Text Content';">Change Text</button>
+    </div>
+    
+    <!-- Set or get value of form elements -->
+    <div class="example" id="example3">
+        <h2>Set or get value of form elements</h2>
+        <input type="text" id="myInput" value="Original Value">
+        <button onclick="document.getElementById('myInput').value = 'New Value';">Change Value</button>
+    </div>
+    
+    <!-- Set or get attributes -->
+    <div class="example" id="example4">
+        <h2>Set or get attributes</h2>
+        <img id="myImage" src="https://via.placeholder.com/100x100?text=ON" alt="Bulb">
+        <button onclick="document.getElementById('myImage').src = 'https://via.placeholder.com/100x100?text=OFF';">Change Image</button>
+    </div>
+    
+    <!-- Set or get styles -->
+    <div class="example" id="example5">
+        <h2>Set or get styles</h2>
+        <p id="demo3">This is a paragraph.</p>
+        <button onclick="document.getElementById('demo3').style.color = 'red';">Change Text Color</button>
+    </div>
+    
+    <!-- Add or remove classes -->
+    <div class="example" id="example6">
+        <h2>Add or remove classes</h2>
+        <p id="demo4" class="originalClass">This is a paragraph.</p>
+        <button onclick="document.getElementById('demo4').classList.add('newClass');">Add Class</button>
+        <button onclick="document.getElementById('demo4').classList.remove('originalClass');">Remove Class</button>
+        <button onclick="document.getElementById('demo4').classList.toggle('active');">Toggle Class</button>
+    </div>
+    
+    <!-- Show or hide elements -->
+    <div class="example" id="example7">
+        <h2>Show or hide elements</h2>
+        <p id="demo5">This is a visible paragraph.</p>
+        <button onclick="document.getElementById('demo5').style.display = 'none';">Hide</button>
+        <button onclick="document.getElementById('demo5').style.display = 'block';">Show</button>
+    </div>
+    
+    <!-- Add event listeners -->
+    <div class="example" id="example8">
+        <h2>Add event listeners</h2>
+        <button id="myButton">Click Me</button>
+        <p id="demo6">This is a paragraph.</p>
+        <script>
+            document.getElementById("myButton").addEventListener("click", function() {
+                document.getElementById("demo6").innerText = "Button Clicked!";
+            });
+        </script>
+    </div>
+
+    <!-- Mouseover event -->
+    <div class="example" id="example12">
+        <h2>Mouseover Event</h2>
+        <button id="hoverButton">Hover Over Me</button>
+        <p id="hoverDemo">This is a paragraph.</p>
+        <script>
+            document.getElementById("hoverButton").addEventListener("mouseover", function() {
+                document.getElementById("hoverDemo").innerText = "Button Hovered!";
+            });
+        </script>
+    </div>
+    
+    <!-- Append child elements -->
+    <div class="example" id="example9">
+        <h2>Append child elements</h2>
+        <div id="parentElement">
+            <p id="childElement">Original Child Element</p>
+        </div>
+        <button onclick="var newElement = document.createElement('p'); newElement.innerHTML = 'New Child Element'; document.getElementById('parentElement').appendChild(newElement);">Append Child</button>
+    </div>
+    
+    <!-- Remove child elements -->
+    <div class="example" id="example10">
+        <h2>Remove child elements</h2>
+        <div id="parentElement2">
+            <p id="childElement2">Original Child Element</p>
+        </div>
+        <button onclick="var parent = document.getElementById('parentElement2'); var child = document.getElementById('childElement2'); parent.removeChild(child);">Remove Child</button>
+    </div>
+    
+    <!-- Replace child elements -->
+    <div class="example" id="example11">
+        <h2>Replace child elements</h2>
+        <div id="parentElement3">
+            <p id="oldChild">Old Child Element</p>
+        </div>
+        <button onclick="var parent = document.getElementById('parentElement3'); var newChild = document.createElement('p'); newChild.innerHTML = 'New Child Element'; var oldChild = document.getElementById('oldChild'); parent.replaceChild(newChild, oldChild);">Replace Child</button>
+    </div>
+
+    <!-- Add or remove class demonstration -->
+    <div class="example" id="example13">
+        <h2>Add or Remove Class Example</h2>
+        <p id="demo7">This is a paragraph.</p>
+        <button onclick="document.getElementById('demo7').classList.add('highlight');">Add Class</button>
+        <button onclick="document.getElementById('demo7').classList.remove('highlight');">Remove Class</button>
+        <button onclick="document.getElementById('demo7').classList.toggle('highlight');">Toggle Class</button>
+    </div>
+
+    <!-- Toggle between two classes -->
+    <div class="example" id="example14">
+        <h2>Toggle Class Example</h2>
+        <div class="box" id="box">Hover over me!</div>
+        <button onclick="toggleHighlight()">Toggle Highlight</button>
+        <button onclick="toggleLowlight()">Toggle Lowlight</button>
+
+        <script>
+            function toggleHighlight() {
+                var element = document.getElementById('box');
+                element.classList.toggle('highlight');
+                if (element.classList.contains('lowlight')) {
+                    element.classList.remove('lowlight');
+                }
+            }
+
+            function toggleLowlight() {
+                var element = document.getElementById('box');
+                element.classList.toggle('lowlight');
+                if (element.classList.contains('highlight')) {
+                    element.classList.remove('highlight');
+                }
+            }
+        </script>
+    </div>
+
+  <!-- Form Validation Example -->
+    <div class="example" id="example15">
+        <h2>Form Validation</h2>
+        <form id="validationForm">
+            <div class="form-control">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required minlength="3">
+                <span id="usernameError"></span>
+            </div>
+            <div class="form-control">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <span id="emailError"></span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            document.getElementById('validationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username');
+                const email = document.getElementById('email');
+                const usernameError = document.getElementById('usernameError');
+                const emailError = document.getElementById('emailError');
+
+                // Reset errors
+                usernameError.textContent = '';
+                emailError.textContent = '';
+
+                // Validate username
+                if (username.value.length < 3) {
+                    usernameError.textContent = 'Username must be at least 3 characters long';
+                    return;
+                }
+
+                // Validate email
+                if (!email.value.includes('@')) {
+                    emailError.textContent = 'Please enter a valid email address';
+                    return;
+                }
+
+                alert('Form submitted successfully!');
+            });
+        </script>
+    </div>
+
+    <!-- Drag and Drop Example -->
+    <div class="example" id="example16">
+        <h2>Drag and Drop</h2>
+        <div id="draggable" class="draggable" draggable="true">Drag me!</div>
+        <div id="dropzone" class="dropzone">Drop here!</div>
+        <script>
+            const draggable = document.getElementById('draggable');
+            const dropzone = document.getElementById('dropzone');
+
+            draggable.addEventListener('dragstart', function(e) {
+                e.dataTransfer.setData('text/plain', '');
+                this.style.opacity = '0.5';
+            });
+
+            draggable.addEventListener('dragend', function(e) {
+                this.style.opacity = '1';
+            });
+
+            dropzone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.background = '#e9ecef';
+            });
+
+            dropzone.addEventListener('dragleave', function(e) {
+                this.style.background = 'none';
+            });
+
+            dropzone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.background = 'none';
+                this.appendChild(draggable);
+            });
+        </script>
+    </div>
+
+    <!-- Event Delegation Example -->
+    <div class="example" id="example17">
+        <h2>Event Delegation</h2>
+        <ul id="todoList">
+            <li>Task 1</li>
+            <li>Task 2</li>
+            <li>Task 3</li>
+        </ul>
+        <button onclick="addTask()">Add Task</button>
+        <script>
+            let taskCount = 4;
+            
+            document.getElementById('todoList').addEventListener('click', function(e) {
+                if (e.target.tagName === 'LI') {
+                    e.target.classList.toggle('selected');
+                }
+            });
+
+            function addTask() {
+                const li = document.createElement('li');
+                li.textContent = `Task ${taskCount++}`;
+                document.getElementById('todoList').appendChild(li);
+            }
+        </script>
+    </div>
+
+    <!-- DOM Animation Example -->
+    <div class="example" id="example18">
+        <h2>DOM Animation</h2>
+        <div id="animatedBox" class="draggable animated">Animate me!</div>
+        <button onclick="animate()">Start Animation</button>
+        <script>
+            function animate() {
+                const box = document.getElementById('animatedBox');
+                box.style.transform = 'translateX(200px) rotate(360deg)';
+                
+                setTimeout(() => {
+                    box.style.transform = 'translateX(0) rotate(0)';
+                }, 1000);
+            }
+        </script>
+    </div>
+</body>
+</html>
