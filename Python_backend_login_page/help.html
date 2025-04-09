@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Login System - Quick Help</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            line-height: 1.6;
+            color: #333;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: monospace;
+        }
+
+        .warning {
+            background: #fff3e0;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flask Login System - Quick Help</h1>
+
+        <div class="warning">
+            <h2>Why GitHub Alone Won't Work</h2>
+            <p>GitHub can only host static websites (HTML, CSS, JS).  This Flask application needs:</p>
+            <ul>
+                <li>A server to run Python code</li>
+                <li>A database to store user information</li>
+                <li>A way to handle dynamic requests</li>
+            </ul>
+        </div>
+
+        <h2>Two Ways to Run This Application</h2>
+
+        <h3>1. Local Machine (Easiest)</h3>
+        <ol>
+            <li>Install Python</li>
+            <li>Open terminal in project folder</li>
+            <li>Run these commands:
+                <div class="code-block">
+                    # Create virtual environment
+                    python -m venv venv
+                    
+                    # Activate it (Windows)
+                    venv\Scripts\activate
+                    
+                    # Install requirements
+                    pip install -r requirements.txt
+                    
+                    # Run the app
+                    python app.py
+                </div>
+            </li>
+            <li>Open browser and go to: <code>http://localhost:5000</code></li>
+        </ol>
+
+        <h3>2. Online Deployment (For Website)</h3>
+        <p>You need a hosting service that supports Python. Free options:</p>
+        <ul>
+            <li><strong>PythonAnywhere</strong> (Easiest)
+                <ul>
+                    <li>Free tier available</li>
+                    <li>Simple setup</li>
+                    <li>Good for learning</li>
+                </ul>
+            </li>
+            <li><strong>Render</strong>
+                <ul>
+                    <li>Free tier available</li>
+                    <li>Connects with GitHub</li>
+                    <li>Automatic deployments</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="warning">
+            <h3>Important Note</h3>
+            <p>For testing and learning, use the local machine method. It's free and works perfectly for development.</p>
+        </div>
+    </div>
+</body>
+</html> 
