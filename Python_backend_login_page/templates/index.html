@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .feature-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-form input,
+        .feature-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .feature-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .feature-form button {
+            padding: 0.5rem 1rem;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .feature-form button:hover {
+            background-color: #3498db;
+        }
+
+        .user-info {
+            margin-left: auto;
+            margin-right: 1rem;
+            color: white;
+        }
+
+        .auth-links {
+            display: flex;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Website</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                {% if current_user.is_authenticated %}
+                    <li class="user-info">Welcome, {{ current_user.username }}!</li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to My Website</h1>
+            <p>This is a simple and modern website template</p>
+        </section>
+
+        {% if current_user.is_authenticated %}
+        <section class="feature-form">
+            <h2>Add a New Feature</h2>
+            <form id="featureForm">
+                <input type="text" id="featureTitle" placeholder="Feature Title" required>
+                <textarea id="featureDescription" placeholder="Feature Description" required></textarea>
+                <button type="submit">Add Feature</button>
+            </form>
+        </section>
+        {% endif %}
+
+        <section class="features">
+            <!-- Features will be loaded dynamically from the backend -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
