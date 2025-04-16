@@ -13,6 +13,7 @@ All projects can be previewed through our [Projects Demo Page](https://rishabhar
 3. **Google Map Project** - Interactive Google Maps implementation
 4. **Places Autocomplete** - Google Places Autocomplete integration
 5. **Python Backend Login Page** - A login system with Python backend
+6. **WeatherApp** - A simple weather forecast page
 
 ## Project Structure
 
