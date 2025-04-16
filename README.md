@@ -8,12 +8,12 @@ All projects can be previewed through our [Projects Demo Page](https://rishabhar
 
 ## Projects List
 
-1. **AI Chat Project** - A simple AI chatbot implementation
-2. **Basic Groww Clone** - A clone of a groww trading & portfolio web-application
-3. **Google Map Project** - Interactive Google Maps implementation
-4. **Places Autocomplete** - Google Places Autocomplete integration
-5. **Python Backend Login Page** - A login system with Python backend
-6. **WeatherApp** - A simple weather forecast page
+1. **AI Chat Project** - A simple AI chatbot implementation   [ Preview ](https://rishabharaj.github.io/basic-projects/AI_chat/chatbot.html) 
+2. **Basic Groww Clone** - A clone of a groww trading & portfolio web-application  [ Preview ](https://rishabharaj.github.io/basic-projects/Basic%20grow%20clone/chart.html) 
+3. **Google Map Project** - Interactive Google Maps implementation    [ Preview ](https://rishabharaj.github.io/basic-projects/Google_map/index.html) 
+4. **Places Autocomplete** - Google Places Autocomplete integration    [Preview ](https://rishabharaj.github.io/basic-projects/Places_Autocomplete_though_google/autocomplete.html) 
+5. **Python Backend Login Page** - A login system with Python backend     [ Preview ](https://rishabharaj.github.io/basic-projects/Python_backend_login_page/help.html) 
+6. **WeatherApp** - A simple weather forecast page    [ Preview ](https://rishabharaj.github.io/basic-projects/WeatherApp/index.html) 
 
 ## Project Structure
 
