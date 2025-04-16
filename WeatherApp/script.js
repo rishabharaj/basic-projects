@@ -40,42 +40,6 @@ function typePlaceholder() {
 }
 typePlaceholder();
 
-// Heading text typewriter animation
-const headingText = document.querySelector('.heading-text');
-const headingPhrases = [
-    'Weather Forecast',
-    'Live Weather Updates',
-    'Your City Weather',
-    'Forecast & Temperature',
-    'Check Weather Instantly'
-];
-let headingWordIndex = 0;
-let headingCharIndex = 0;
-let headingTypingForward = true;
-
-function typeHeading() {
-    const currentPhrase = headingPhrases[headingWordIndex];
-    if (headingTypingForward) {
-        headingCharIndex++;
-        if (headingCharIndex > currentPhrase.length) {
-            headingTypingForward = false;
-            setTimeout(typeHeading, 1200);
-            return;
-        }
-    } else {
-        headingCharIndex--;
-        if (headingCharIndex < 0) {
-            headingTypingForward = true;
-            headingWordIndex = (headingWordIndex + 1) % headingPhrases.length;
-            setTimeout(typeHeading, 600);
-            return;
-        }
-    }
-    headingText.textContent = currentPhrase.slice(0, headingCharIndex);
-    setTimeout(typeHeading, 90);
-}
-typeHeading();
-
 weatherForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const city = cityInput.value.trim();
