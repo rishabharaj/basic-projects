@@ -14,6 +14,8 @@ All projects can be previewed through our [Projects Demo Page](https://rishabhar
 4. **Places Autocomplete** - Google Places Autocomplete integration    [Preview ](https://rishabharaj.github.io/basic-projects/Places_Autocomplete_though_google/autocomplete.html) 
 5. **Python Backend Login Page** - A login system with Python backend     [ Preview ](https://rishabharaj.github.io/basic-projects/Python_backend_login_page/help.html) 
 6. **WeatherApp** - A simple weather forecast page    [ Preview ](https://rishabharaj.github.io/basic-projects/WeatherApp/index.html) 
+7. **Gamified Developer Portfolio** - Interactive portfolio with playable mini‑games (Snake, Pong, Memory, Typing), XP/leveling, and persistent stats.  
+	[ Preview ](https://rishabharaj.github.io/gamified-portfolio/) · [ Repo ](https://github.com/rishabharaj/gamified-portfolio)
 
 ## Project Structure
 
